@@ -1,0 +1,44 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Agregar Servicios</h3>
+    <br>
+    <form method="POST">
+            {% csrf_token %} 
+            <!-- {{ form.as_p }} -->
+            <div class="row">
+                
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="nombre">Nombre del servicio</label>
+                    {{ formServicio.nombre }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="precio">Precio del servicio</label>
+                    {{ formServicio.precio }}  
+                </div>
+                
+                <div class="mb-3">
+                    <label for="tiempo_ejecucion">Tiempo estiamdo de demora</label>
+                    {{ formServicio.tiempo_ejecucion }}  
+                </div>
+                <div class="mb-3">
+                    <label for="estado">Estado del servicio</label>
+                    {{ formServicio.estado }}  
+                </div>
+                <div class="mb-3">
+                    <label for="descuento">Descuento</label>
+                    {{ formServicio.descuento }}  
+                </div>
+
+                <button type="submit" class="btn btn-success">GRABAR</button> 
+            </div> 
+                </div>
+           </div>
+            </div>
+            </div>
+    </form>
+</div>
+{% endblock %}

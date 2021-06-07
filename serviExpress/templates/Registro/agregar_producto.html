@@ -1,0 +1,42 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Agregar Productos</h3>
+    <br>
+    <form method="POST">
+            {% csrf_token %} 
+            
+             <div class="row">
+                
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="nombre">Nombre del producto</label>
+                    {{ formProducto.nombre }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="precio">Precio del producto</label>
+                    {{ formProducto.precio }}  
+                </div>
+                
+                <div class="mb-3">
+                    <label for="stock">Cantidad disponible</label>
+                    {{ formProducto.stock }}  
+                </div>
+                <div class="mb-3">
+                    <label for="garantia">Dias de garantía</label>
+                    {{ formProducto.garantia }}  
+                </div>
+
+
+                <button type="submit" class="btn btn-success">GRABAR</button> 
+            </div> 
+                </div>
+           </div>
+            </div>
+            </div>
+    
+    </form>
+</div>
+{% endblock %}

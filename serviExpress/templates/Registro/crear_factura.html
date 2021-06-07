@@ -1,0 +1,30 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Crear Factura</h3>
+    <br>
+    <form method="POST">
+            {% csrf_token %} 
+            <div class="row">
+                
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="fecha_factura">Fecha</label>
+                    {{ formFactura.fecha_factura }}
+                </div>
+                <div class="mb-3">
+                    <label for="cantidad_boleta">Cantidad</label>
+                    {{ formFactura.cantidad_factura }}  
+                </div>
+                <div class="mb-3">
+                    <label for="subtotal_boleta">Total</label>
+                    {{ formFactura.subtotal_factura }}  
+                </div>
+                <button type="submit" class="btn btn-success">GRABAR</button> 
+            </div> 
+
+            </div>
+    </form>
+</div>
+{% endblock %}

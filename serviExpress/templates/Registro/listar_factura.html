@@ -1,0 +1,34 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<h3>Lista de Facturas</h3>
+<td><a class="btn btn-primary"  href="{% url 'crear_factura'%}">Crear</a></td>  
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Fecha factura</th>
+      <th scope="col">Cantidad </th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if factura is not None%}
+      {% for f in factura %}
+          <tr>
+            <td>{{ f.id }} </td>   
+            <td>{{ f.fecha_factura}} </td> 
+            <td>{{ f.cantidad_factura}} </td> 
+            <td>{{ f.subtotal_factura}} </td>
+            <td><a class="btn btn-primary"  href="{% url 'modificar_factura' f.id %}">Editar </a></td> 
+            <td> <a class="btn btn-danger"  href="{% url 'anular_factura' f.id %}">Eliminar </a></td>  
+          </tr>
+      {% endfor %}
+    {% endif %}
+   
+  </tbody>
+</table>
+
+
+{% endblock %}
+
+ 

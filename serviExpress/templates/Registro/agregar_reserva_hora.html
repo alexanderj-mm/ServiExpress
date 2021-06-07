@@ -1,0 +1,46 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Agregar Reserva de Hora</h3>
+    <br>
+    <form method="POST">
+            {% csrf_token %} 
+            <div class="row">
+                
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="fechaReserva">Fecha de Reserva</label>
+                    {{ formReservaHora.fecha_reserva}}
+                </div>
+
+                <div class="mb-3">
+                    <label for="horaReserva">Hora de Reserva</label>
+                    {{ formReservaHora.hora_reserva }}  
+                </div>
+                
+                <div class="mb-3">
+                    <label for="vehiculo_marca">Marca de vehiculo</label>
+                    {{ formCliente.vehiculo_marca }}  
+                </div>
+                <div class="mb-3">
+                    <label for="vehiculo_modelo">Modelo de vehiculo</label>
+                    {{ formCliente.vehiculo_modelo }}  
+                </div>
+                <div class="mb-3">
+                    <label for="vehiculo_patente">Patente de vehiculo</label>
+                    {{ formCliente.vehiculo_patente }}  
+                </div>
+                <div class="mb-6">
+                    <label for="descripcion">Descripción</label>
+                    {{ formReservaHora.descripcion }}  
+                </div>
+                <button type="submit" class="btn btn-success">GRABAR</button> 
+            </div> 
+                </div>
+           </div>
+            </div>
+            </div>
+    </form>
+</div>
+{% endblock %}

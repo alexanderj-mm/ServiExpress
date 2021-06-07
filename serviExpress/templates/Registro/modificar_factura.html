@@ -1,0 +1,32 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Editar Factura</h3>
+    <br>
+    <form method="POST">
+        {% csrf_token %} 
+        {{ formFactura.id }} 
+        <div class="row">
+            
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="fecha_factura">Fecha de Pedido</label>
+                {{ formFactura.fecha_factura}}
+            </div>
+            <div class="mb-3">
+                <label for="cantidad_factura">Cantidad</label>
+                {{ formFactura.cantidad_factura }}  
+            </div>
+            <div class="mb-3">
+                <label for="subtotal_factura">Total</label>
+                {{ formFactura.subtotal_factura }}  
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">GRABAR</button> 
+        </div> 
+        
+        </div>
+</form>
+</div>
+{% endblock %}

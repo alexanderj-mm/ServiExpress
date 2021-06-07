@@ -1,0 +1,39 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<h3>Lista de servicios</h3>
+<td><a class="btn btn-primary"  href="{% url 'agregar_servicio'%}">Agregar </a></td>  
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Número de servicio</th>
+      <th scope="col">Nombre </th>
+      <th scope="col">Precio</th>
+      <th scope="col">Tiempo de ejecución</th>
+      <th scope="col">Estado</th> 
+      <th scope="col">Descuento</th> 
+    </tr>
+  </thead>
+  <tbody>
+    {% if servicio is not None%}
+      {% for s in servicio %}
+          <tr>
+            <td>{{ s.id }} </td>   
+            <td>{{ s.precio }} </td> 
+            <td>{{ s.nombre }} </td> 
+            <td>{{ s.tiempo_ejecucion }} </td>
+            <td>{{ s.estado }} </td> 
+            <td>{{ s.descuento }} </td> 
+            <td><a class="btn btn-primary"  href="{% url 'editar_servicio' s.id %}">Editar </a></td> 
+            <td> <a class="btn btn-danger"  href="{% url 'eliminar_servicio' s.id %}">Eliminar </a></td>  
+          </tr>
+      {% endfor %}
+    {% endif %}
+   
+  </tbody>
+</table>
+
+
+{% endblock %}
+
+ 

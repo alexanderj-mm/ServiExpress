@@ -1,0 +1,15 @@
+Administrador Django SuperUsuario
+Usuario:adminServiExpress
+Clave:12345
+------------------------------------------
+Empleado ServiExpress
+Usuario:usr_felipe
+Clave:hola2021
+------------------------------------------
+cliente ServiExpress
+Usuario:usr_esteban
+Clave:hola2021
+
+
+
+

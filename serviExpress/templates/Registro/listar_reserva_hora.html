@@ -1,0 +1,33 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<h3>Lista de reservas</h3>
+<td><a class="btn btn-primary"  href="{% url 'agregar_reserva_hora'%}">Agregar </a></td>  
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Número de reserva</th>
+      <th scope="col">Fecha de reserva</th>
+      <th scope="col">Hora de reserva</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if reserva is not None%}
+      {% for r in reserva %}
+          <tr>
+            <td>{{ r.id }} </td>
+            <td>{{ r.fecha_reserva }}</td>
+            <td>{{ r.hora_reserva }}</td>    
+            <td><a class="btn btn-primary"  href="{% url 'editar_reserva_hora' r.id %}">Editar </a></td> 
+            <td> <a class="btn btn-danger"  href="{% url 'eliminar_reserva_hora' r.id %}">Eliminar </a></td>  
+          </tr>
+      {% endfor %}
+    {% endif %}
+   
+  </tbody>
+</table>
+
+
+{% endblock %}
+
+ 

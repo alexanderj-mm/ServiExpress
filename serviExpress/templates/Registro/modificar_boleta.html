@@ -1,0 +1,32 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Editar Boleta</h3>
+    <br>
+    <form method="POST">
+        {% csrf_token %} 
+        {{ formBoleta.id }} 
+        <div class="row">
+            
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="fecha_boleta">Fecha de Pedido</label>
+                {{ formBoleta.fecha_boleta}}
+            </div>
+            <div class="mb-3">
+                <label for="cantidad_boleta">Cantidad</label>
+                {{ formBoleta.cantidad_boleta }}  
+            </div>
+            <div class="mb-3">
+                <label for="subtotal_boleta">Total</label>
+                {{ formBoleta.subtotal_boleta }}  
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">GRABAR</button> 
+        </div> 
+        
+        </div>
+</form>
+</div>
+{% endblock %}

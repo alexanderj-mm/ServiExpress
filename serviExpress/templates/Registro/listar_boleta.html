@@ -1,0 +1,34 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+<h3>Lista de Boletas</h3>
+<td><a class="btn btn-primary"  href="{% url 'crear_boleta'%}">Crear</a></td>  
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Fecha boleta</th>
+      <th scope="col">Cantidad </th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if boleta is not None%}
+      {% for b in boleta %}
+          <tr>
+            <td>{{ b.id }} </td>   
+            <td>{{ b.fecha_boleta}} </td> 
+            <td>{{ b.cantidad_boleta}} </td> 
+            <td>{{ b.subtotal_boleta}} </td>
+            <td><a class="btn btn-primary"  href="{% url 'modificar_boleta' b.id %}">Editar </a></td> 
+            <td> <a class="btn btn-danger"  href="{% url 'anular_boleta' b.id %}">Eliminar </a></td>  
+          </tr>
+      {% endfor %}
+    {% endif %}
+   
+  </tbody>
+</table>
+
+
+{% endblock %}
+
+ 

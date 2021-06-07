@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 4 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>  
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container cntr animated fadeIn">
+    <div class="py-3 pb-3 text-center">
+        <h3>ServiExpress</h3>
+        <p>Taller Automotriz</p>
+      </div>
+    <div class="container">
+        <div class="row justify-content-center" >
+            
+            <div class="col-8 formbox">
+                <div class="login-form pb-0 mt-4">
+                <form method="POST" id="formulario">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                    <div class="form-group">
+                        <div class="bg-danger mt-1 p-2">Login incorrecto!</div>
+                    </div>
+                    {% endif %}
+                    <div class="form-group">
+                        <label for="username">Nombre de Usuario</label><br>
+                        <input name="username" class="form-control" type="text" placeholder="Nombre de Usuario"/>
+                        <div class="bg-danger mt-1">{{ form.errors.username }}</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label><br>
+                        <input name="password" class="form-control" type="password" placeholder="Contraseña"/>
+                        <div class="bg-danger mt-1">{{ form.errors.password }}</div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary col-12">Ingresar</button>
+                        <a href="{% url 'registrar_usuario' %}" class="link-primary">Registrarse</a>
+                    </div>   
+                </form>
+            </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+  {% extends 'Base/base.html' %}
+
+  {% block content %}
+  <h3>Lista de Órdenes de Pedido</h3>
+  <td><a class="btn btn-primary"  href="{% url 'agregar_orden_pedido'%}">Agregar </a></td>  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Fecha Pedido</th>
+        <th scope="col">Descripción </th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if ordenPedido is not None%}
+        {% for o in ordenPedido %}
+            <tr>
+              <td>{{ o.fecha_pedido }} </td> 
+              <td>{{ o.descripcion_pedido }} </td> 
+              <td>{{ o.cantidad_prod_pedido }} </td> 
+              <td>{{ o.precio_prod_unidad }} </td>
+              <td><a class="btn btn-primary"  href="{% url 'editar_orden_pedido' o.id %}">Editar </a></td>
+              <td><a class="btn btn-danger"  href="{% url 'eliminar_orden_pedido' o.id %}">Eliminar </a></td>  
+            </tr>
+        {% endfor %}
+      {% endif %}
+    
+    </tbody>
+  </table>
+
+
+  {% endblock %}
+
+ 
